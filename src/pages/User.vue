@@ -3,7 +3,7 @@
 </script>
 
 <template>
-队伍
+个人
 </template>
 
 <style scoped>
