@@ -3,7 +3,7 @@ import {useRouter} from "vue-router";
 
 const router=useRouter()
 const onClickLeft = () => {
-  router.push({ path: '/' })
+  router.back()
 };
 const onClickRight = () => {
   // 带有路径的对象
@@ -11,7 +11,7 @@ const onClickRight = () => {
 };
 
 // const active = ref("index");
-const onChange = (index: any) => alert(`标签 ${index}`);
+const onChange = (index: any) => (`标签 ${index}`);
 </script>
 
 <template>
@@ -36,7 +36,7 @@ const onChange = (index: any) => alert(`标签 ${index}`);
   <van-tabbar route  @change="onChange">
     <van-tabbar-item to="/" icon="home-o" name="index">主页</van-tabbar-item>
     <van-tabbar-item to="/team" icon="search" name="team">队伍</van-tabbar-item>
-    <van-tabbar-item to="/user" icon="friends-o" name="user">用户</van-tabbar-item>
+    <van-tabbar-item to="/user" icon="friends-o" name="user">个人</van-tabbar-item>
   </van-tabbar>
 
 </template>
