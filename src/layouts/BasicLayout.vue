@@ -1,7 +1,14 @@
 <script setup lang="ts">
+import {useRouter} from "vue-router";
 
-const onClickLeft = () => alert('左');
-const onClickRight = () => alert('右');
+const router=useRouter()
+const onClickLeft = () => {
+  router.push({ path: '/' })
+};
+const onClickRight = () => {
+  // 带有路径的对象
+  router.push({ path: '/search' })
+};
 
 // const active = ref("index");
 const onChange = (index: any) => alert(`标签 ${index}`);
