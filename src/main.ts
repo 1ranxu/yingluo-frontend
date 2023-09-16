@@ -1,6 +1,20 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import {Col, Divider, Icon, NavBar, Row, Search, Tabbar, TabbarItem, Tag, Toast, TreeSelect} from "vant";
+import {
+    Cell,
+    CellGroup,
+    Col,
+    Divider,
+    Icon,
+    NavBar,
+    Row,
+    Search,
+    Tabbar,
+    TabbarItem,
+    Tag,
+    Toast,
+    TreeSelect
+} from "vant";
 // 把vue-router的所有方法作为一个对象引入
 import * as VueRouter from 'vue-router'
 import routes from "./config/route.ts";
@@ -24,6 +38,8 @@ app.use(Divider);
 app.use(TreeSelect);
 app.use(Col);
 app.use(Row);
+app.use(Cell);
+app.use(CellGroup);
 app.mount('#app')
 
 
