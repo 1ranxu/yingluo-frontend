@@ -1,11 +1,11 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import {
-    Button,
+    Button, Card,
     Cell,
     CellGroup,
     Col,
-    Divider, Field, Form,
+    Divider, Empty, Field, Form,
     Icon,
     NavBar,
     Row,
@@ -44,6 +44,8 @@ app.use(CellGroup);
 app.use(Form);
 app.use(Field);
 app.use(Button);
+app.use(Card);
+app.use(Empty);
 app.mount('#app')
 
 

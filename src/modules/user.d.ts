@@ -12,5 +12,6 @@ export type UserType = {
     userRole: number;
     authCode: string;
     token: string;
-    tags: string;
+    tags: string[];
+    profile?:string;
 };
