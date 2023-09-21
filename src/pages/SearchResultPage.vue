@@ -3,6 +3,7 @@ import {useRoute} from "vue-router";
 import {onMounted, ref} from "vue";
 import my_axios from "../plugins/myAxios.js";
 import qs from "qs"
+import UserCardList from "../components/UserCardList.vue";
 
 const route = useRoute()
 
@@ -34,20 +35,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <van-card
-      v-for="user in userList.values()"
-      :desc="user.profile"
-      :title="user.username"
-      :thumb="user.avatarUrl"
-  >
-    <template #tags>
-      <van-tag plain type="danger" v-for="tag in user.tags" style="margin-right: 8px;margin-top: 8px">{{ tag }}
-      </van-tag>
-    </template>
-    <template #footer>
-      <van-button size="mini">联系我</van-button>
-    </template>
-  </van-card>
+  <user-card-list :user-list="userList"/>
 
   <van-empty description="暂无符合要求的用户" v-if="!userList || userList.length < 1"/>
 

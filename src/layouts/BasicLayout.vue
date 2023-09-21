@@ -42,5 +42,7 @@ const onChange = (index: any) => (`标签 ${index}`);
 </template>
 
 <style scoped>
-
+#content {
+  padding-bottom: 50px;
+}
 </style>
