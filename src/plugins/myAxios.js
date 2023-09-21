@@ -2,12 +2,8 @@
 import axios from "axios";
 const my_axios = axios.create({
     baseURL: 'http://localhost:8080/api/',
-    timeout: 100000,
-    headers: {
-        'Authorization': sessionStorage.getItem("token"),
-    }
 });
-
+my_axios.defaults.withCredentials=true
 my_axios.interceptors.request.use(function (config) {
     // 在发送请求之前做些什么
     console.log("我要发请求了",config)
