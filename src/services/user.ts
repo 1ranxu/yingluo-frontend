@@ -1,6 +1,4 @@
 import myAxios from "../plugins/myAxios.js";
-import {useRouter} from "vue-router";
-const router=useRouter()
 export const getCurrentUser = async ()=> {
     // const currentUser=getCurrentUserState()
     // if (currentUser){

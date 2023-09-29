@@ -2,10 +2,11 @@
 import {UserType} from "./user";
 
 export type TeamType = {
-    id:number
+    id: number
     name: string,
     description: string,
-    expireTime? : Date,
+    expireTime?: Date,
+    userId: number,
     maxNum: number,
     password?: string,
     status: number,
