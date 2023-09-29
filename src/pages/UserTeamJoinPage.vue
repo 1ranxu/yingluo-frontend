@@ -13,11 +13,7 @@ const searchText = ref('')
  * 搜索函数
  */
 const listTeam = async (val) => {
-  const res = await myAxios.get(`/team/list/mine/join`, {
-    params: {
-      searchText:val,
-    }
-  })
+  const res = await myAxios.get(`/team/list/mine/join`)
   if (res.data.code == 1) {
     teamList.value = res.data.data;
   }
