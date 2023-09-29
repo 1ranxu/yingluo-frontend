@@ -1,15 +1,24 @@
-import { createApp } from 'vue'
+import {createApp} from 'vue'
 import App from './App.vue'
 import {
-    Button, Card,
+    Button,
+    Card,
     Cell,
     CellGroup,
     Col,
-    Divider, Empty, Field, Form,
+    Divider,
+    Empty,
+    Field,
+    Form,
     Icon,
     NavBar,
+    Picker,
+    Popup,
+    Radio,
+    RadioGroup,
     Row,
     Search,
+    Stepper,
     Tabbar,
     TabbarItem,
     Tag,
@@ -19,6 +28,7 @@ import {
 // 把vue-router的所有方法作为一个对象引入
 import * as VueRouter from 'vue-router'
 import routes from "./config/route.ts";
+import {DatetimePicker} from "vant/es";
 
 const app=createApp(App)
 
@@ -46,6 +56,12 @@ app.use(Field);
 app.use(Button);
 app.use(Card);
 app.use(Empty);
+app.use(Stepper);
+app.use(Radio);
+app.use(RadioGroup);
+app.use(Picker);
+app.use(DatetimePicker);
+app.use(Popup);
 app.mount('#app')
 
 

@@ -30,12 +30,17 @@
   "resolved" "https://registry.npmjs.org/@types/qs/-/qs-6.9.8.tgz"
   "version" "6.9.8"
 
-"@vant/popperjs@^1.3.0":
+"@vant/icons@^1.8.0":
+  "integrity" "sha512-sKfEUo2/CkQFuERxvkuF6mGQZDKu3IQdj5rV9Fm0weJXtchDSSQ+zt8qPCNUEhh9Y8shy5PzxbvAfOOkCwlCXg=="
+  "resolved" "https://registry.npmjs.org/@vant/icons/-/icons-1.8.0.tgz"
+  "version" "1.8.0"
+
+"@vant/popperjs@^1.2.1":
   "integrity" "sha512-hB+czUG+aHtjhaEmCJDuXOep0YTZjdlRR+4MSmIFnkCQIxJaXLQdSsR90XWvAI2yvKUI7TCGqR8pQg2RtvkMHw=="
   "resolved" "https://registry.npmjs.org/@vant/popperjs/-/popperjs-1.3.0.tgz"
   "version" "1.3.0"
 
-"@vant/use@^1.6.0":
+"@vant/use@^1.4.2":
   "integrity" "sha512-PHHxeAASgiOpSmMjceweIrv2AxDZIkWXyaczksMoWvKV2YAYEhoizRuk/xFnKF+emUIi46TsQ+rvlm/t2BBCfA=="
   "resolved" "https://registry.npmjs.org/@vant/use/-/use-1.6.0.tgz"
   "version" "1.6.0"
@@ -170,7 +175,7 @@
     "@vue/compiler-ssr" "3.3.4"
     "@vue/shared" "3.3.4"
 
-"@vue/shared@^3.0.0", "@vue/shared@^3.3.0", "@vue/shared@3.3.4":
+"@vue/shared@^3.3.0", "@vue/shared@3.3.4":
   "integrity" "sha512-7OjdcV8vQ74eiz1TZLzZP4JwqM5fA94K6yntPS5Z25r9HDuGNzaGdgvwKYq6S+MxwF0TFRwe50fIR/MYnakdkQ=="
   "resolved" "https://registry.npmjs.org/@vue/shared/-/shared-3.3.4.tgz"
   "version" "3.3.4"
@@ -627,14 +632,14 @@
   dependencies:
     "tslib" "^2.0.3"
 
-"vant@^4.6.8":
-  "integrity" "sha512-kWkv4kQJWOyF8qQzLD07yDscVBtx281yYdSXJ6RnXVMYje0hZMIikE06zM/NoVYUZTnStVTO89h0zAxLuuDd/A=="
-  "resolved" "https://registry.npmjs.org/vant/-/vant-4.6.8.tgz"
-  "version" "4.6.8"
+"vant@^3.6.12":
+  "integrity" "sha512-fLzwhpV0ZPQqxrTx6RU8mJVUqP7DSkpdXNeByKubp+O9vKYGcWRX9wFdEwApyy7qLZLLu+rU1Jw52d6lktPL4w=="
+  "resolved" "https://registry.npmjs.org/vant/-/vant-3.6.12.tgz"
+  "version" "3.6.12"
   dependencies:
-    "@vant/popperjs" "^1.3.0"
-    "@vant/use" "^1.6.0"
-    "@vue/shared" "^3.0.0"
+    "@vant/icons" "^1.8.0"
+    "@vant/popperjs" "^1.2.1"
+    "@vant/use" "^1.4.2"
 
 "vite-plugin-style-import@^1.4.1":
   "integrity" "sha512-lJCRvm7+So0hHdnSJiJPg9gD5mxtL6YY0jmhEph+k7ArpsyvqOh6han2kG5htbWWDZxHkUN9d1BuTFL//yCLLQ=="
