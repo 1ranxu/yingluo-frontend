@@ -9,7 +9,9 @@ const route = useRoute()
 
 const {tags} = route.query
 const userList = ref([])
+const loading=ref(true)
 onMounted(async () => {
+  loading.value=true
   const userListData = await my_axios.get('/user/searchByTags', {
     params: {
       tags: tags
@@ -30,12 +32,13 @@ onMounted(async () => {
     })
     userList.value = userListData
   }
+  loading.value=false
 })
 
 </script>
 
 <template>
-  <user-card-list :user-list="userList"/>
+  <user-card-list :user-list="userList" :loading="loading"/>
 
   <van-empty description="暂无符合要求的用户" v-if="!userList || userList.length < 1"/>
 
