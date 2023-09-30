@@ -105,13 +105,13 @@ const doDeleteTeam = async (id: number) => {
 
     <template #bottom>
       <div>
-        {{ '最大人数' + team.maxNum }}
+        {{ `队伍人数：${team.hasJoinNum}/${team.maxNum}` }}
       </div>
       <div v-if="team.expireTime">
-        {{ '过期时间' + team.expireTime }}
+        {{ '过期时间：' + team.expireTime }}
       </div>
       <div>
-        {{ '发布时间' + team.createTime }}
+        {{ '发布时间：' + team.createTime }}
       </div>
     </template>
 
