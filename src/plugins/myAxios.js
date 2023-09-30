@@ -17,6 +17,11 @@ my_axios.interceptors.request.use(function (config) {
 my_axios.interceptors.response.use(function (response) {
     // 对响应数据做点什么
     console.log("我收到响应了",response)
+    // 未登录择跳转到登录页
+    if (response?.data?.code === 40100){
+        const redirectUrl=window.location.href
+        window.location.href=`/user/login?redirect=${redirectUrl}`
+    }
     return response
 }, function (error) {
     // 对响应错误做点什么
