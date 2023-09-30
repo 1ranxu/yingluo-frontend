@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {useRoute, useRouter} from "vue-router";
+import {useRouter} from "vue-router";
 import {ref} from "vue";
 import routes from "../config/route.ts";
 
@@ -7,7 +7,7 @@ const router = useRouter()
 const DEFAULT_TITLE = '樱络'
 const title = ref(DEFAULT_TITLE)
 
-router.beforeEach((to, from) => {
+router.beforeEach((to) => {
   const toPath = to.path;
   const route = routes.find(route => {
     return route.path == toPath;
@@ -44,7 +44,7 @@ const onClickRight = () => {
 
 
   <!--  TabBar-->
-  <van-tabbar route @change="onChange">
+  <van-tabbar route >
     <van-tabbar-item to="/" icon="home-o" name="index">主页</van-tabbar-item>
     <van-tabbar-item to="/team" icon="search" name="team">队伍</van-tabbar-item>
     <van-tabbar-item to="/user" icon="friends-o" name="user">个人</van-tabbar-item>
