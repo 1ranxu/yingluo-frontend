@@ -41,7 +41,7 @@ const onSearch = async (val)=>{
   <div id="teamPage">
     <van-search v-model="searchText" placeholder="搜索队伍" @search="onSearch"/>
 
-    <van-button icon="plus" type="success" @click="doAddTeam">创建队伍</van-button>
+    <van-button class="add-button" icon="plus" type="success" @click="doAddTeam"/>
     <team-card-list :team-list="teamList"/>
     <van-empty description="暂无符合要求的队伍" v-if="!teamList || teamList.length < 1"/>
   </div>

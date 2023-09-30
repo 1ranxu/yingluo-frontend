@@ -5,7 +5,7 @@ import {
     Card,
     Cell,
     CellGroup,
-    Col,
+    Col, Dialog,
     Divider,
     Empty,
     Field,
@@ -18,9 +18,9 @@ import {
     RadioGroup,
     Row,
     Search, Skeleton,
-    Stepper, Switch,
+    Stepper, Switch, Tab,
     Tabbar,
-    TabbarItem,
+    TabbarItem, Tabs,
     Tag,
     Toast,
     TreeSelect
@@ -29,6 +29,7 @@ import {
 import * as VueRouter from 'vue-router'
 import routes from "./config/route.ts";
 import {DatetimePicker} from "vant/es";
+import "../global.css"
 
 const app=createApp(App)
 
@@ -64,6 +65,9 @@ app.use(DatetimePicker);
 app.use(Popup);
 app.use(Switch);
 app.use(Skeleton);
+app.use(Tab);
+app.use(Tabs);
+app.use(Dialog);
 app.mount('#app')
 
 

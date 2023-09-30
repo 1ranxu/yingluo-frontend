@@ -9,39 +9,49 @@ const router = useRouter()
 const teamList = ref([]);
 
 const searchText = ref('')
+
+const active=ref('public')
 const doAddTeam = () => {
   router.push('/team/add')
 }
 /**
  * 搜索函数
  */
-const listTeam = async (val) => {
+const listTeam = async (status=0) => {
   const res = await myAxios.get(`/team/list`, {
     params: {
-      searchText:val,
+      searchText:searchText.value,
+      status:status,
     }
   })
   if (res.data.code == 1) {
     teamList.value = res.data.data;
   }
 }
-
 onMounted(async ()=>{
-  await listTeam('');
+  await listTeam();
 })
-
-const onSearch = async (val)=>{
-  await listTeam(val);
+const onSearch = async ()=>{
+  await listTeam();
 }
-
-
+const onTabChange=(name)=>{
+  if (name==='public'){
+    listTeam(0)
+  }else {
+    listTeam(2)
+  }
+}
 </script>
 
 <template>
   <div id="teamPage">
     <van-search v-model="searchText" placeholder="搜索队伍" @search="onSearch"/>
-
-    <van-button icon="plus" type="success" @click="doAddTeam">创建队伍</van-button>
+    <van-tabs v-model:active="active" @change="onTabChange">
+      <van-tab title="公开" name="public"/>
+      <van-tab title="加密" name="secret"/>
+    </van-tabs>
+    <div style="margin-bottom: 16px"></div>
+    <van-button class="add-button" icon="plus" type="success" @click="doAddTeam"/>
     <team-card-list :team-list="teamList"/>
     <van-empty description="暂无符合要求的队伍" v-if="!teamList || teamList.length < 1"/>
   </div>
