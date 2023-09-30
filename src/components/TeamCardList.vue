@@ -4,7 +4,6 @@ import teamStatusEnum from "../constants/team";
 import kunkun from "../assets/kunkun.png"
 import myAxios from "../plugins/myAxios.js";
 import {getCurrentUser} from "../services/user";
-import {UserType} from "../modules/user";
 import {onMounted, ref} from "vue";
 import {useRouter} from "vue-router";
 
@@ -17,7 +16,7 @@ onMounted(async () => {
   curentUser.value = await getCurrentUser()
 })
 
-const router=useRouter();
+const router = useRouter();
 
 const props = withDefaults(defineProps<TeamCardListProps>(), {
   // @ts-ignore
@@ -38,10 +37,10 @@ const doJoinTeam = async (id: number) => {
   }
 }
 
-const doUpdateTeam=(id:number)=>{
+const doUpdateTeam = (id: number) => {
   router.push({
-    path:'/team/update',
-    query:{
+    path: '/team/update',
+    query: {
       id
     }
   })
@@ -50,7 +49,7 @@ const doUpdateTeam=(id:number)=>{
  * 退出队伍
  * @param id
  */
-const doQuitTeam=async (id:number)=>{
+const doQuitTeam = async (id: number) => {
   const res = await myAxios.post('/team/quit', {
     teamId: id,
   })
@@ -62,7 +61,7 @@ const doQuitTeam=async (id:number)=>{
  * 解散队伍
  * @param id
  */
-const doDeleteTeam=async (id:number)=>{
+const doDeleteTeam = async (id: number) => {
   const res = await myAxios.post('/team/delete', {
     teamId: id,
   })
@@ -98,12 +97,28 @@ const doDeleteTeam=async (id:number)=>{
     </template>
 
     <template #footer>
-      <van-button type="success" plain size="small" @click="doJoinTeam(team.id)">加入队伍</van-button>
-      <van-button v-if="team.userId === curentUser?.id" type="primary" plain size="small" @click="doUpdateTeam(team.id)">
+
+      <template v-for=" user in team.userList">
+        <!--  只有我不在队伍里面，才展示加入队伍    -->
+        <van-button v-if="user.id !== curentUser?.id" type="success" plain size="small" @click="doJoinTeam(team.id)">
+          加入队伍
+        </van-button>
+      </template>
+      <!--  只有我是队长，才展示更新队伍    -->
+      <van-button v-if="team.userId === curentUser?.id" type="primary" plain size="small"
+                  @click="doUpdateTeam(team.id)">
         更新队伍
       </van-button>
-      <van-button type="warning" plain size="small" @click="doQuitTeam(team.id)">退出队伍</van-button>
-      <van-button type="danger" plain size="small" @click="doDeleteTeam(team.id)">解散队伍</van-button>
+      <!--  只有我在队伍里面，才展示退出队伍    -->
+      <template v-for=" user in team.userList">
+        <van-button v-if="user.id == curentUser?.id" type="warning" plain size="small" @click="doQuitTeam(team.id)">
+          退出队伍
+        </van-button>
+      </template>
+      <!--  只有我是队长，才展示解散队伍    -->
+      <van-button v-if="team.userId === curentUser?.id" type="danger" plain size="small" @click="doDeleteTeam(team.id)">
+        解散队伍
+      </van-button>
     </template>
   </van-card>
 </template>
