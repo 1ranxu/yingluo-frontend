@@ -18,7 +18,7 @@ import {
     RadioGroup,
     Row,
     Search,
-    Stepper,
+    Stepper, Switch,
     Tabbar,
     TabbarItem,
     Tag,
@@ -62,6 +62,7 @@ app.use(RadioGroup);
 app.use(Picker);
 app.use(DatetimePicker);
 app.use(Popup);
+app.use(Switch);
 app.mount('#app')
 
 
