@@ -7,9 +7,14 @@ import UserCardList from "../components/UserCardList.vue";
 const route = useRoute()
 
 const {tags} = route.query
+
 const userList = ref([])
+
+const loading=ref(true)
+
 const isMatchMode=ref(false);
 const loadData=async ()=>{
+  loading.value=true
   let userListData
   // 匹配模式
   if (isMatchMode.value){
@@ -51,7 +56,7 @@ const loadData=async ()=>{
       userList.value = userListData
     }
   }
-
+  loading.value=false
 }
 watchEffect(()=>{
   loadData()
@@ -64,7 +69,7 @@ watchEffect(()=>{
       <van-switch v-model="isMatchMode" size="24" />
     </template>
   </van-cell>
-  <user-card-list :user-list="userList"/>
+  <user-card-list :user-list="userList" :loading="loading"/>
   <van-empty description="数据为空" v-if="!userList || userList.length < 1"/>
 </template>
 
