@@ -2,6 +2,7 @@
 import {useRouter} from "vue-router";
 import {ref} from "vue";
 import myAxios from "../plugins/myAxios.js"
+import {Toast} from "vant";
 
 
 const router = useRouter()
@@ -31,10 +32,13 @@ const onSubmit = async () => {
   const res = await myAxios.post('/team/add', postData, {})
 
   if (res.data.code == 1) {
+    Toast.success('创建成功')
     await router.push({
       path: '/team',
       replace: true,
     })
+  }else {
+    Toast.success('创建失败')
   }
 };
 </script>

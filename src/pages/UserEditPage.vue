@@ -3,6 +3,7 @@ import {useRoute, useRouter} from "vue-router";
 import {ref} from "vue";
 import myAxios from "../plugins/myAxios.js"
 import {getCurrentUser} from "../services/user.ts";
+import {Toast} from "vant";
 
 const route = useRoute()
 const router = useRouter()
@@ -23,10 +24,10 @@ const onSubmit = async () => {
     [editUser.value.editKey as string]: editUser.value.currentValue
   })
   if (res.data.code == 1 && res.data.data > 0) {
-    // Toast.success('修改成功');
+    Toast.success('修改成功');
     router.back()
   } else {
-    // Toast.fail('修改失败');
+    Toast.fail('修改失败');
   }
 };
 </script>

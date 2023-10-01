@@ -2,6 +2,7 @@
 import {useRoute} from "vue-router";
 import myAxios from "../plugins/myAxios.js";
 import {ref} from "vue";
+import {Toast} from "vant";
 
 const route = useRoute()
 const userAccount = ref('');
@@ -12,10 +13,10 @@ const onSubmit = async () => {
     userPassword: userPassword.value,
   })
   if (res.data.code == 1 && res.data.data) {
-    // Toast.success('登录成功');
+    Toast.success('登录成功');
     window.location.href=route.query?.redirect as string ?? '/'
   }else{
-    // Toast.fail('登录失败');
+    Toast.fail('登录失败');
   }
 };
 </script>

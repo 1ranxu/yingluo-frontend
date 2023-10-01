@@ -2,6 +2,7 @@
 import {useRoute, useRouter} from "vue-router";
 import {onMounted, ref} from "vue";
 import myAxios from "../plugins/myAxios.js"
+import {Toast} from "vant";
 
 
 const router = useRouter()
@@ -34,10 +35,13 @@ const onSubmit = async () => {
   const res = await myAxios.post('/team/update', postData, {})
 
   if (res.data.code == 1) {
+    Toast.success('修改成功');
     await router.push({
       path: '/team',
       replace: true,
     })
+  }else {
+    Toast.fail('修改失败');
   }
 };
 
