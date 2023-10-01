@@ -15,10 +15,10 @@ const doAddTeam = () => {
 /**
  * 搜索函数
  */
-const listTeam = async (val) => {
+const listTeam = async () => {
   const res = await myAxios.get(`/team/list/mine/create`, {
     params: {
-      searchText:val,
+      searchText:searchText.value,
     }
   })
   if (res.data.code == 1) {
@@ -27,11 +27,11 @@ const listTeam = async (val) => {
 }
 
 onMounted(async ()=>{
-  await listTeam('');
+  await listTeam();
 })
 
-const onSearch = async (val)=>{
-  await listTeam(val);
+const onSearch = async ()=>{
+  await listTeam();
 }
 
 

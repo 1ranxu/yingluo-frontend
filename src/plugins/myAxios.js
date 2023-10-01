@@ -1,7 +1,9 @@
 // 添加请求拦截器
 import axios from "axios";
+const isDev=process.env.NODE_ENV === 'development'
+
 const my_axios = axios.create({
-    baseURL: 'http://localhost:8080/api/',
+    baseURL: isDev?'http://localhost:8080/api':'https://yingluo-backend-73523-5-1321344148.sh.run.tcloudbase.com',
 });
 my_axios.defaults.withCredentials=true
 my_axios.interceptors.request.use(function (config) {

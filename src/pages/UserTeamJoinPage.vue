@@ -1,10 +1,7 @@
 <script setup lang="ts">
-import {useRouter} from "vue-router";
 import TeamCardList from "../components/TeamCardList.vue";
 import {onMounted, ref} from "vue";
 import myAxios from "../plugins/myAxios.js";
-
-const router = useRouter()
 
 const teamList = ref([]);
 
@@ -12,19 +9,23 @@ const searchText = ref('')
 /**
  * 搜索函数
  */
-const listTeam = async (val) => {
-  const res = await myAxios.get(`/team/list/mine/join`)
+const listTeam = async () => {
+  const res = await myAxios.get(`/team/list/mine/join`,{
+    params: {
+      searchText:searchText.value,
+    }
+  })
   if (res.data.code == 1) {
     teamList.value = res.data.data;
   }
 }
 
 onMounted(async ()=>{
-  await listTeam('');
+  await listTeam();
 })
 
-const onSearch = async (val)=>{
-  await listTeam(val);
+const onSearch = async ()=>{
+  await listTeam();
 }
 
 

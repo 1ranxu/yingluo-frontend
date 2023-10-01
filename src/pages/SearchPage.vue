@@ -14,7 +14,7 @@ const onCancel = () => {
   activeIds.value = []
 };
 // 移除标签
-const close = (tag) => {
+const close = (tag:string) => {
   // 保留id不等于tag的标签
   activeIds.value = activeIds.value.filter(item => item !== tag)
 };

@@ -6,7 +6,7 @@ import {ref} from "vue";
 const route = useRoute()
 const userAccount = ref('');
 const userPassword = ref('');
-const onSubmit = async (values) => {
+const onSubmit = async () => {
   const res = await myAxios.post('/user/login', {
     userAccount: userAccount.value,
     userPassword: userPassword.value,
